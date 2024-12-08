@@ -78,12 +78,16 @@
     // Select all the images in the slider
     const sliderItems = document.querySelectorAll('.banner .slider .item img');
     const modelBackground = document.querySelector('.banner .content .model');
+    let img='images/free-photo-of-stylish-woman-posing-with-bicycle-indoors.jpeg'
+    modelBackground.style.backgroundImage=`url(${img})`
 
     // Add click event listeners to each image
     sliderItems.forEach((img) => {
         img.addEventListener('click', () => {
             // Get the image source
             const imageSrc = img.getAttribute('src');
+            console.log(imageSrc);
+            
             // Set the image as the background
             modelBackground.style.backgroundImage = `url(${imageSrc})`;
         });
