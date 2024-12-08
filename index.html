@@ -39,6 +39,7 @@
             pointer-events: none;
         }
     </style>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -93,5 +94,30 @@
         });
     });
 </script>
+<!-- Add this inside the <head> tag, before the closing </head> tag -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+<script>
+    // Show confetti on page load
+    window.onload = function() {
+        var end = Date.now() + (1 * 1000); // 5 seconds of confetti
+        var interval = setInterval(function() {
+            confetti({
+                particleCount: 100,
+                startVelocity: 30,
+                spread: 360,
+                origin: {
+                    x: Math.random(),
+                    y: Math.random() - 0.2
+                }
+            });
+
+            if (Date.now() > end) {
+                clearInterval(interval);
+            }
+        }, 250); // Fire confetti every 250 milliseconds
+    }
+</script>
+
 
 </html>
